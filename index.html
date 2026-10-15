@@ -1,108 +1,443 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
+<meta name="description" content="Jessa Hilardino's IT portfolio, skills, projects, and contact information.">
 <title>Jessa Hilardino | IT Portfolio</title>
+
 <style>
-:root{
-  --bg:#08111f;--panel:#101e31;--text:#edf7ff;
-  --muted:#a7b9ce;--cyan:#42e8ff;--border:#203850;
+:root {
+  --bg: #08111f;
+  --panel: #101e31;
+  --text: #edf7ff;
+  --muted: #a7b9ce;
+  --cyan: #42e8ff;
+  --border: #203850;
+  --shadow: 0 10px 30px #0003;
 }
-body.light{
-  --bg:#eaf5fc;--panel:#fff;--text:#14283d;
-  --muted:#50677d;--cyan:#007e9d;--border:#c9deec;
+
+body.light {
+  --bg: #eaf5fc;
+  --panel: #fff;
+  --text: #14283d;
+  --muted: #50677d;
+  --cyan: #007e9d;
+  --border: #c9deec;
+  --shadow: 0 10px 30px #24506a16;
 }
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,sans-serif;line-height:1.6;
-  transition:background .3s,color .3s;
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-header{
-  position:sticky;top:0;z-index:10;
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;padding:14px 6%;background:var(--panel);
-  border-bottom:1px solid var(--border);
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background .3s, color .3s;
 }
-.logo{font-weight:bold;color:var(--cyan);font-size:19px}
-nav{display:flex;flex-wrap:wrap;gap:13px}
-a{color:var(--cyan);text-decoration:none}
-nav a{font-size:13px}
-a:hover{opacity:.75}
-button{
-  cursor:pointer;padding:10px 14px;border:1px solid var(--cyan);
-  border-radius:9px;background:var(--cyan);color:#06111d;
-  font-weight:bold;
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
 }
-button:hover{transform:translateY(-2px);box-shadow:0 0 15px #42e85555}
-#themeBtn{padding:8px;background:transparent;color:var(--cyan)}
-section{padding:65px 7%;scroll-margin-top:75px}
-.hero{
-  min-height:75vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;
-  background:radial-gradient(ellipse at top,#12334b 0%,var(--bg) 65%);
+
+a:hover {
+  opacity: .8;
 }
-body.light .hero{
-  background:radial-gradient(ellipse at top,#d0f5ff 0%,var(--bg) 70%);
+
+button {
+  cursor: pointer;
+  padding: 11px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 9px;
+  background: var(--cyan);
+  color: #06111d;
+  font-weight: bold;
+  font-size: 14px;
+  transition: transform .25s, box-shadow .25s;
 }
-.avatar{
-  width:140px;height:140px;border-radius:50%;
-  border:3px solid var(--cyan);object-fit:cover;
-  box-shadow:0 0 25px #42e8ff55;margin-bottom:20px;
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #42e8ff40;
 }
-h1{font-size:clamp(30px,7vw,52px);line-height:1.15;margin:10px 0}
-h2{color:var(--cyan);text-align:center;margin-bottom:28px}
-.accent{color:var(--cyan)}
-p{color:var(--muted)}
-.hero p{max-width:550px}
-.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
-.secondary{background:transparent;color:var(--cyan)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{
-  background:var(--panel);padding:22px;border:1px solid var(--border);
-  border-radius:15px;transition:transform .25s,border-color .25s;
+
+button:focus-visible, a:focus-visible,
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
 }
-.card:hover{transform:translateY(-5px);border-color:var(--cyan)}
-.card h3{margin-top:0}
-.skill{margin:20px 0}
-.skill-label{display:flex;justify-content:space-between;gap:8px}
-.track{height:9px;background:var(--border);border-radius:20px;overflow:hidden}
-.fill{height:100%;width:0;background:var(--cyan);border-radius:20px;transition:width 1.2s}
-.tag{
-  display:inline-block;border:1px solid var(--border);border-radius:20px;
-  padding:4px 10px;margin:4px;font-size:12px;color:var(--cyan);
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 6%;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
 }
-form{max-width:550px;margin:auto}
-input,textarea{
-  display:block;width:100%;margin:12px 0;padding:13px;
-  border:1px solid var(--border);border-radius:8px;
-  background:var(--panel);color:var(--text);font:inherit;
+
+.logo {
+  flex-shrink: 0;
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--cyan);
 }
-textarea{min-height:120px;resize:vertical}
-footer{text-align:center;padding:25px;border-top:1px solid var(--border)}
-#topBtn{
-  display:none;position:fixed;bottom:20px;right:18px;
-  width:45px;height:45px;border-radius:50%;font-size:20px;
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
-.reveal.show{opacity:1;transform:translateY(0)}
-@media(max-width:480px){
-  header{padding:12px 4%;align-items:flex-start}
-  nav{gap:9px}
-  nav a{font-size:12px}
-  .logo{font-size:16px}
-  section{padding:48px 5%}
+
+nav a {
+  font-size: 14px;
 }
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+
+#themeBtn {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  background: transparent;
+  color: var(--cyan);
+}
+
+section {
+  padding: 75px 7%;
+  scroll-margin-top: 80px;
+}
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at top, #12334b 0%, var(--bg) 70%
+  );
+}
+
+body.light .hero {
+  background: radial-gradient(
+    ellipse at top, #d0f5ff 0%, var(--bg) 70%
+  );
+}
+
+/* NEW: side-by-side profile layout */
+.hero-layout {
+  width: 100%;
+  max-width: 1050px;
+  display: grid;
+  grid-template-columns: minmax(200px, .75fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: clamp(25px, 5vw, 65px);
+}
+
+.profile-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatIn .8s ease both;
+}
+
+.avatar {
+  display: block;
+  width: clamp(180px, 25vw, 285px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 4px solid var(--cyan);
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 0 25px #42e8ff35, 0 0 65px #42e8ff12;
+  transition: transform .35s, box-shadow .35s;
+}
+
+.avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 35px #42e8ff65;
+}
+
+.profile-placeholder {
+  width: clamp(180px, 25vw, 285px);
+  aspect-ratio: 1;
+  border: 3px dashed var(--cyan);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  text-align: center;
+  color: var(--cyan);
+  background: var(--panel);
+}
+
+.hero-content {
+  animation: floatIn .8s ease .12s both;
+}
+
+.hero-content h1 {
+  font-size: clamp(32px, 5vw, 55px);
+  line-height: 1.15;
+  margin: 8px 0 15px;
+}
+
+.hero-content h3 {
+  font-size: clamp(17px, 2vw, 23px);
+  margin: 15px 0;
+}
+
+.hero-content > p {
+  max-width: 620px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.accent {
+  color: var(--cyan);
+}
+
+p {
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--cyan);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: var(--cyan);
+}
+
+h2 {
+  color: var(--cyan);
+  text-align: center;
+  margin: 0 0 30px;
+  font-size: clamp(25px, 4vw, 34px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--panel);
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: transform .25s, border-color .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--cyan);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.skill {
+  margin: 22px 0;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.track {
+  height: 10px;
+  background: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #149bb5, var(--cyan));
+  border-radius: 20px;
+  transition: width 1.3s ease;
+}
+
+.project-number {
+  color: var(--cyan);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form {
+  max-width: 550px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: 6px 0 14px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#formStatus {
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid var(--border);
+}
+
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 18px;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 9;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-wrap: wrap;
+    padding: 12px 4%;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .avatar, .profile-placeholder {
+    width: 175px;
+  }
+
+  .hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions, .tags {
+    justify-content: center;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>
 </head>
+
 <body>
 <header>
-  <div class="logo">JH<span class="accent">.</span> PORTFOLIO</div>
+  <a class="logo" href="#home">JH<span class="accent">.</span> PORTFOLIO</a>
+
   <nav aria-label="Main navigation">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -110,49 +445,100 @@ footer{text-align:center;padding:25px;border-top:1px solid var(--border)}
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
-  <button id="themeBtn" type="button" aria-label="Switch color theme">☀️</button>
+
+  <button id="themeBtn" type="button"
+          aria-label="Switch to light theme">☀️</button>
 </header>
 
 <main>
 <section class="hero" id="home">
-  <img class="avatar" src="profile.jpg" alt="Jessa's profile photo"
-       onerror="this.style.display='none'">
-  <p class="accent">HELLO, WORLD! I'M</p>
-  <h1>Jessa <span class="accent">Hilardino</span></h1>
-  <h3>IT Student | Future Web Developer</h3>
-  <p>I am an Information Technology student passionate about web design, technology, and learning how to build useful digital experiences.</p>
-  <div class="actions">
-    <a href="#projects"><button type="button">Explore Projects ↘</button></a>
-    <a href="#contact"><button type="button" class="secondary">Contact Me</button></a>
+  <div class="hero-layout">
+
+    <div class="profile-side">
+      <img class="avatar"
+           src="profile.jpg"
+           alt="Jessa Hilardino's profile photo"
+           onerror="this.hidden=true;this.nextElementSibling.hidden=false;">
+
+      <div class="profile-placeholder" hidden>
+        Add your profile.jpg file to display your photo.
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow">HELLO, WORLD! I'M</p>
+
+      <h1>Jessa <span class="accent">Hilardino</span></h1>
+
+      <h3>IT Student | Future Web Developer</h3>
+
+      <p>
+        I am an Information Technology student passionate about
+        web design, technology, and learning how to build useful
+        digital experiences.
+      </p>
+
+      <div class="actions">
+        <a href="#projects">
+          <button type="button">Explore Projects ↘</button>
+        </a>
+        <a href="#contact">
+          <button type="button" class="secondary">Contact Me</button>
+        </a>
+      </div>
+
+      <div class="tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
   </div>
-  <p class="tag">HTML</p><p class="tag">CSS</p><p class="tag">JavaScript</p>
 </section>
 
 <section id="about" class="reveal">
   <h2>01 / About Me</h2>
+
   <div class="card">
     <h3>Getting to know me</h3>
-    <p>Hello! My name is Jessa Hilardino. I am an IT student developing my skills in web development and application design. I enjoy exploring new technologies, solving problems, and creating projects that help me learn through practice.</p>
-    <p>My goal is to keep improving my technical knowledge and become a capable IT professional.</p>
+    <p>
+      Hello! My name is Jessa Hilardino. I am an IT student
+      developing my skills in web development and application
+      design. I enjoy exploring new technologies, solving problems,
+      and creating projects that help me learn through practice.
+    </p>
+    <p>
+      My goal is to keep improving my technical knowledge and
+      become a capable IT professional.
+    </p>
   </div>
 </section>
 
 <section id="skills" class="reveal">
   <h2>02 / My Skills</h2>
+
   <div class="card">
-    <p>These bars represent my current self-assessed learning progress, not official test results.</p>
+    <p>
+      These bars represent my current self-assessed learning progress,
+      not official test results.
+    </p>
+
     <div class="skill">
       <div class="skill-label"><span>HTML</span><span>70%</span></div>
       <div class="track"><div class="fill" data-width="70%"></div></div>
     </div>
+
     <div class="skill">
       <div class="skill-label"><span>CSS</span><span>55%</span></div>
       <div class="track"><div class="fill" data-width="55%"></div></div>
     </div>
+
     <div class="skill">
       <div class="skill-label"><span>JavaScript</span><span>35%</span></div>
       <div class="track"><div class="fill" data-width="35%"></div></div>
     </div>
+
     <div class="skill">
       <div class="skill-label"><span>Problem Solving</span><span>60%</span></div>
       <div class="track"><div class="fill" data-width="60%"></div></div>
@@ -162,40 +548,78 @@ footer{text-align:center;padding:25px;border-top:1px solid var(--border)}
 
 <section id="projects" class="reveal">
   <h2>03 / Featured Projects</h2>
+
   <div class="grid">
     <article class="card">
+      <span class="project-number">PROJECT 01</span>
       <h3>⌘ Personal Portfolio</h3>
-      <p>A responsive website introducing my background, skills, and projects.</p>
-      <span class="tag">HTML</span><span class="tag">CSS</span>
+      <p>
+        A responsive website introducing my background, skills,
+        and projects.
+      </p>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
       <span class="tag">JavaScript</span>
+      <a class="project-link"
+         href="https://hilardinojessa19-design.github.io/JessaPortfolio/"
+         target="_blank" rel="noopener noreferrer">
+        View Portfolio ↗
+      </a>
     </article>
+
     <article class="card">
+      <span class="project-number">PROJECT 02</span>
       <h3>⌘ Lost and Found System</h3>
-      <p>A student project concept for reporting lost belongings and finding reported items on campus.</p>
-      <span class="tag">Web Application</span><span class="tag">UI/UX</span>
+      <p>
+        A student project concept for reporting lost belongings
+        and finding reported items on campus.
+      </p>
+      <span class="tag">Web Application</span>
+      <span class="tag">UI/UX</span>
     </article>
+
     <article class="card">
+      <span class="project-number">PROJECT 03</span>
       <h3>⌘ Student Data Processor</h3>
-      <p>A learning project concept for processing student records and organizing data with JavaScript.</p>
-      <span class="tag">JavaScript</span><span class="tag">Data</span>
+      <p>
+        A learning project concept for organizing student records
+        and exploring data processing with JavaScript.
+      </p>
+      <span class="tag">JavaScript</span>
+      <span class="tag">Data</span>
     </article>
   </div>
-  <p>Replace or update these sample descriptions to match your actual completed projects.</p>
+
+  <p>
+    Update the sample project descriptions to reflect your actual
+    completed work. Label unfinished ideas as concepts.
+  </p>
 </section>
 
 <section id="contact" class="reveal">
   <h2>04 / Contact Me</h2>
+
   <div class="card">
-    <p style="text-align:center">Have a question or want to connect? Fill out the form to prepare an email.</p>
+    <p style="text-align:center">
+      Have a question or want to connect? Fill out this form
+      to prepare an email.
+    </p>
+
     <form id="contactForm">
       <label for="name">Your Name</label>
-      <input id="name" name="name" required placeholder="Enter your name">
+      <input id="name" name="name" required
+             autocomplete="name" placeholder="Enter your name">
+
       <label for="email">Your Email</label>
-      <input id="email" name="email" type="email" required placeholder="jessahilardino446@gmail.com">
+      <input id="email" name="email" type="email" required
+             autocomplete="email" placeholder="Enter your email">
+
       <label for="message">Your Message</label>
-      <textarea id="message" name="message" required placeholder="Write your message..."></textarea>
+      <textarea id="message" name="message" required
+                placeholder="Write your message..."></textarea>
+
       <button type="submit">Prepare Email ↗</button>
-      <p id="formStatus" role="status"></p>
+      <p id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -206,50 +630,76 @@ footer{text-align:center;padding:25px;border-top:1px solid var(--border)}
   <p>Personal Portfolio · <span id="year"></span></p>
   <a href="#home">Back to Home ↑</a>
 </footer>
+
 <button id="topBtn" type="button" aria-label="Back to top">↑</button>
 
 <script>
 const themeBtn = document.getElementById("themeBtn");
-themeBtn.addEventListener("click", function(){
-  document.body.classList.toggle("light");
-  const light = document.body.classList.contains("light");
+
+themeBtn.addEventListener("click", function () {
+  const light = document.body.classList.toggle("light");
   themeBtn.textContent = light ? "🌙" : "☀️";
-  themeBtn.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+  themeBtn.setAttribute(
+    "aria-label",
+    light ? "Switch to dark theme" : "Switch to light theme"
+  );
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-      entry.target.querySelectorAll(".fill").forEach(bar => {
-        bar.style.width = bar.dataset.width;
-      });
-    }
-  });
-},{threshold:0.12});
+const sections = document.querySelectorAll(".reveal");
+const bars = document.querySelectorAll(".fill");
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+
+        entry.target.querySelectorAll(".fill").forEach(bar => {
+          bar.style.width = bar.dataset.width;
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  sections.forEach(section => observer.observe(section));
+} else {
+  sections.forEach(section => section.classList.add("show"));
+  bars.forEach(bar => bar.style.width = bar.dataset.width);
+}
 
 const topBtn = document.getElementById("topBtn");
+
 window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
+
 topBtn.addEventListener("click", () => {
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
+document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
+
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
+
   const subject = encodeURIComponent("Portfolio message from " + name);
-  const body = encodeURIComponent(message + "\n\nFrom: " + name + "\nReply to: " + email);
+  const body = encodeURIComponent(
+    message + "\n\nFrom: " + name + "\nReply to: " + email
+  );
+
   document.getElementById("formStatus").textContent =
     "Opening your email app. Review the message and send it there.";
-  window.location.href = "mailto:jessahilardino446@gmail.com?subject=" + subject + "&body=" + body;
+
+  window.location.href =
+    "mailto:jessahilardino446@gmail.com?subject=" +
+    subject + "&body=" + body;
 });
 </script>
 </body>
